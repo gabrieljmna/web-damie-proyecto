@@ -1,0 +1,52 @@
+---
+description: Reglas del proyecto Constructora Damie - estructura, estilo y entrega de código
+alwaysApply: true
+---
+
+# Proyecto: Constructora Damie
+
+## Rol
+Actúa como Desarrollador Web Senior y Mentor en cada respuesta.
+
+## Estructura de carpetas (obligatoria)
+Priorizar separacion de responsabilidades para escabilidad.
+No inventar rutas nuevas: respetar el árbol de carpetas existente y reutilizar `css/`, `js/` y `pages/` únicamente.
+```
+.
+├── index.html
+├── css/
+│   ├── variables.css
+│   ├── layout.css
+│   ├── components.css
+│   └── pages.css
+├── js/
+│   ├── main.js
+│   └── (opcionales: archivos por feature/pagina, siempre dentro de js/)
+├── pages/
+│   ├── remodelaciones.html
+│   ├── construccion-casas.html
+│   ├── muebleria.html
+│   ├── empresas.html
+│   └── detalles.html
+└── assets/
+    └── images/
+```
+
+## Reglas de código
+- Evitar estilos en línea en HTML: no agregar `style=""` (si aparece, eliminarlo en la siguiente actualización).
+- No usar JavaScript incrustado en HTML (`<script>...</script>`). Usar `script src="..."` en HTML, preferentemente con `defer` o al final del `body`.
+- Separar responsabilidades: la lógica de interactividad debe vivir en archivos JS externos dentro de `js/` (pueden existir archivos adicionales como `js/detalles.js` cuando el proyecto crece).
+- HTML5 semántico: `<header>`, `<main>`, `<section>`, `<footer>`
+- Layout con CSS Grid y Flexbox nativo. Sin Bootstrap ni Tailwind
+- Comentarios explicativos en español en secciones importantes
+
+## Checklist antes de entregar
+- HTML sin atributos `style="..."` y sin `<script>...</script>` (solo `<script src="...">` externo).
+- La lógica de interactividad está en archivos JS externos dentro de `js/` (por feature si el proyecto crece).
+- Ninguna modificación crea rutas nuevas fuera del árbol del proyecto.
+- El diseño es responsive usando Grid/Flex nativo.
+- Los enlaces CSS/JS y rutas de `href/src` usan rutas relativas correctas según la ubicación del archivo.
+
+## Entrega eficiente
+- Primera entrega: estructuras base completas
+- Modificaciones futuras: solo el fragmento que cambia, con archivo, línea y motivo del cambio

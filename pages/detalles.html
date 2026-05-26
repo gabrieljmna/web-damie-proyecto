@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Detalle e imágenes del proyecto — Constructora Damie." />
+
+  <title>Detalle del Proyecto | Constructora Damie</title>
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <script src="../js/main.js" defer></script>
+  <script src="../js/detalles.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo" aria-label="Inicio Constructora Damie">
+        <span class="logo__icon">⬛</span>
+        <span class="logo__text">Constructora <strong>Damie</strong></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menú principal">
+        <ul class="main-nav__list">
+          <li><a href="../index.html" class="main-nav__link">Inicio</a></li>
+          <li><a href="remodelaciones.html" class="main-nav__link">Remodelaciones</a></li>
+          <li><a href="construccion-casas.html" class="main-nav__link">Construcción</a></li>
+          <li><a href="muebleria.html" class="main-nav__link">Mueblería</a></li>
+          <li><a href="empresas.html" class="main-nav__link">Empresas</a></li>
+          <li><a href="../index.html#contacto" class="btn btn--primary btn--sm">Contáctanos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Cabecera dinámica — se llena con JS según ?proyecto= -->
+    <section class="page-hero" aria-labelledby="project-title">
+      <div class="container page-hero__inner">
+        <nav aria-label="Ruta de navegación">
+          <!-- El breadcrumb se actualiza dinámicamente -->
+          <ol class="breadcrumb" id="breadcrumb">
+            <li><a href="../index.html">Inicio</a> /</li>
+            <li>Proyecto</li>
+          </ol>
+        </nav>
+        <span class="tag" id="project-tag">Categoría</span>
+        <h1 id="project-title" class="page-hero__title">Cargando proyecto…</h1>
+        <p class="page-hero__subtitle" id="project-desc"></p>
+      </div>
+    </section>
+
+    <!-- Galería principal del proyecto -->
+    <section class="section" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 id="gallery-title" class="section-title">Galería de imágenes</h2>
+        <p class="section-subtitle">Haz clic en cualquier imagen para ampliarla</p>
+
+        <!-- Imagen destacada -->
+        <div class="detail-cover" id="detail-cover" role="img" aria-label="Imagen principal del proyecto"></div>
+
+        <!-- Miniaturas -->
+        <div class="thumb-grid" id="thumb-grid" role="list" aria-label="Miniaturas del proyecto"></div>
+      </div>
+    </section>
+
+    <!-- Ficha técnica -->
+    <section class="section" aria-labelledby="specs-title">
+      <div class="container detail-grid">
+        <div>
+          <h2 id="specs-title" class="section-title">Descripción</h2>
+          <p id="project-long-desc" class="project-long-desc"></p>
+        </div>
+
+        <aside class="content-block" aria-label="Ficha técnica">
+          <h3 class="content-block__title">Ficha técnica</h3>
+          <dl class="detail-specs" id="project-specs"></dl>
+          <a href="../index.html#contacto" class="btn btn--accent btn--full">Quiero un proyecto similar</a>
+          <a href="#" id="back-link" class="btn btn--outline btn--full">← Volver al catálogo</a>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox — oculto por defecto, JS lo activa al hacer clic en miniatura -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de imagen" hidden>
+    <button class="lightbox__close" id="lightbox-close" aria-label="Cerrar visor">✕</button>
+    <button class="lightbox__prev" id="lightbox-prev" aria-label="Imagen anterior">‹</button>
+    <div class="lightbox__wrap">
+      <img class="lightbox__img" id="lightbox-img" src="" alt="" />
+    </div>
+    <button class="lightbox__next" id="lightbox-next" aria-label="Imagen siguiente">›</button>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <p class="footer__brand">Constructora <strong>Damie</strong></p>
+      <p class="footer__copy">© <span id="year"></span> Todos los derechos reservados.</p>
+      <nav aria-label="Enlaces del pie de página">
+        <ul class="footer__links">
+          <li><a href="remodelaciones.html">Remodelaciones</a></li>
+          <li><a href="construccion-casas.html">Construcción</a></li>
+          <li><a href="muebleria.html">Mueblería</a></li>
+          <li><a href="empresas.html">Empresas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

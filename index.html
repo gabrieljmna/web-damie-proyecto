@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Constructora Damie — Remodelaciones, construcción de casas, mueblería y proyectos para empresas." />
+
+  <title>Constructora Damie | Construimos tu visión</title>
+
+  <!-- Hojas de estilo en orden de dependencia -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+  <!-- Script global con defer: se descarga en paralelo y ejecuta al terminar el DOM -->
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- ========================================
+       ENCABEZADO Y NAVEGACIÓN GLOBAL
+       ======================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <!-- Logo / identidad de marca -->
+      <a href="index.html" class="logo" aria-label="Inicio Constructora Damie">
+        <span class="logo__icon">⬛</span>
+        <span class="logo__text">Constructora <strong>Damie</strong></span>
+      </a>
+
+      <!-- Botón hamburguesa (solo móviles) -->
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <!-- Menú de navegación principal -->
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menú principal">
+        <ul class="main-nav__list">
+          <li><a href="index.html" class="main-nav__link active">Inicio</a></li>
+          <li><a href="pages/remodelaciones.html" class="main-nav__link">Remodelaciones</a></li>
+          <li><a href="pages/construccion-casas.html" class="main-nav__link">Construcción</a></li>
+          <li><a href="pages/muebleria.html" class="main-nav__link">Mueblería</a></li>
+          <li><a href="pages/empresas.html" class="main-nav__link">Empresas</a></li>
+          <li><a href="#contacto" class="btn btn--primary btn--sm">Contáctanos</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ========================================
+       CONTENIDO PRINCIPAL
+       ======================================== -->
+  <main id="main-content">
+
+    <!-- SECCIÓN HERO — primera impresión del visitante -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="hero__eyebrow">Calidad · Confianza · Experiencia</p>
+          <h1 id="hero-title" class="hero__title">Construimos<br>tu visión</h1>
+          <p class="hero__subtitle">
+            Más de 10 años transformando espacios residenciales y comerciales
+            con acabados de primera y cumplimiento de plazos.
+          </p>
+          <div class="hero__actions">
+            <a href="#servicios" class="btn btn--accent btn--lg">Ver servicios</a>
+            <a href="#proyectos" class="btn btn--outline btn--lg">Nuestros proyectos</a>
+          </div>
+        </div>
+        <div class="hero__image" role="img" aria-label="Proyecto destacado de Constructora Damie"></div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN SERVICIOS — tarjetas de los 4 servicios principales -->
+    <section id="servicios" class="section services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="services-title" class="section-title">Nuestros Servicios</h2>
+          <p class="section-subtitle">Soluciones integrales para cada etapa de tu proyecto</p>
+        </div>
+
+        <div class="services__grid">
+
+          <article class="card card--service">
+            <div class="card__icon" aria-hidden="true">🏠</div>
+            <h3 class="card__title">Remodelaciones</h3>
+            <p class="card__desc">Renovamos cocinas, baños, interiores y exteriores con materiales premium y diseño moderno.</p>
+            <a href="pages/remodelaciones.html" class="card__link">Ver catálogo →</a>
+          </article>
+
+          <article class="card card--service">
+            <div class="card__icon" aria-hidden="true">🏗️</div>
+            <h3 class="card__title">Construcción de Casas</h3>
+            <p class="card__desc">Edificamos desde cero con estructura sólida, diseño personalizado y supervisión constante.</p>
+            <a href="pages/construccion-casas.html" class="card__link">Ver catálogo →</a>
+          </article>
+
+          <article class="card card--service">
+            <div class="card__icon" aria-hidden="true">🪑</div>
+            <h3 class="card__title">Mueblería</h3>
+            <p class="card__desc">Fabricamos muebles a medida que combinan funcionalidad y estética para cada espacio.</p>
+            <a href="pages/muebleria.html" class="card__link">Ver catálogo →</a>
+          </article>
+
+          <article class="card card--service">
+            <div class="card__icon" aria-hidden="true">🏢</div>
+            <h3 class="card__title">Proyectos para Empresas</h3>
+            <p class="card__desc">Adecuamos y construimos oficinas, bodegas y espacios comerciales bajo estrictos estándares.</p>
+            <a href="pages/empresas.html" class="card__link">Ver catálogo →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN CIFRAS / CONFIANZA -->
+    <section class="section stats" aria-label="Cifras de confianza">
+      <div class="container stats__grid">
+        <div class="stat">
+          <span class="stat__number">+150</span>
+          <span class="stat__label">Proyectos completados</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">10+</span>
+          <span class="stat__label">Años de experiencia</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">98%</span>
+          <span class="stat__label">Clientes satisfechos</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">25+</span>
+          <span class="stat__label">Profesionales en equipo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN PROYECTOS DESTACADOS -->
+    <section id="proyectos" class="section projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="projects-title" class="section-title">Proyectos Destacados</h2>
+          <p class="section-subtitle">Una muestra de nuestro trabajo más reciente</p>
+        </div>
+
+        <div class="projects__grid">
+          <!-- Las tarjetas de proyecto se generarán con JS o se añadirán en iteraciones siguientes -->
+          <article class="card card--project">
+            <div class="card__thumb card__thumb--placeholder" role="img" aria-label="Remodelación residencial"></div>
+            <div class="card__body">
+              <span class="tag">Remodelación</span>
+              <h3 class="card__title">Casa Moderna en Zona Norte</h3>
+              <p class="card__desc">Remodelación integral de 220 m² con acabados europeos.</p>
+              <a href="pages/detalles.html" class="card__link">Ver detalle →</a>
+            </div>
+          </article>
+
+          <article class="card card--project">
+            <div class="card__thumb card__thumb--placeholder" role="img" aria-label="Construcción nueva"></div>
+            <div class="card__body">
+              <span class="tag">Construcción</span>
+              <h3 class="card__title">Residencia Familiar 3 Pisos</h3>
+              <p class="card__desc">Edificación completa desde cimentación en 8 meses.</p>
+              <a href="pages/detalles.html" class="card__link">Ver detalle →</a>
+            </div>
+          </article>
+
+          <article class="card card--project">
+            <div class="card__thumb card__thumb--placeholder" role="img" aria-label="Mueblería a medida"></div>
+            <div class="card__body">
+              <span class="tag">Mueblería</span>
+              <h3 class="card__title">Cocina Integral Minimalista</h3>
+              <p class="card__desc">Diseño a medida con madera sólida y herrajes europeos.</p>
+              <a href="pages/detalles.html" class="card__link">Ver detalle →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto" class="section contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+
+        <div class="contact__info">
+          <h2 id="contact-title" class="section-title">¿Tienes un proyecto?</h2>
+          <p>Cuéntanos tu idea y te damos una cotización sin costo ni compromiso.</p>
+          <ul class="contact__list">
+            <li>📞 <a href="tel:+50000000000">+5 (000) 000-0000</a></li>
+            <li>✉️ <a href="mailto:info@constructoradamie.com">info@constructoradamie.com</a></li>
+            <li>📍 Ciudad, País</li>
+          </ul>
+        </div>
+
+        <!-- Formulario de contacto — acción real se configura con JS o backend -->
+        <form class="contact__form" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+          </div>
+          <div class="form-group">
+            <label for="servicio">Servicio de interés</label>
+            <select id="servicio" name="servicio">
+              <option value="">Selecciona un servicio</option>
+              <option value="remodelacion">Remodelación</option>
+              <option value="construccion">Construcción de casa</option>
+              <option value="muebleria">Mueblería</option>
+              <option value="empresas">Proyecto empresarial</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe brevemente tu proyecto..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--accent btn--full">Enviar mensaje</button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================
+       PIE DE PÁGINA
+       ======================================== -->
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <p class="footer__brand">Constructora <strong>Damie</strong></p>
+      <p class="footer__copy">© <span id="year"></span> Todos los derechos reservados.</p>
+      <nav aria-label="Enlaces del pie de página">
+        <ul class="footer__links">
+          <li><a href="pages/remodelaciones.html">Remodelaciones</a></li>
+          <li><a href="pages/construccion-casas.html">Construcción</a></li>
+          <li><a href="pages/muebleria.html">Mueblería</a></li>
+          <li><a href="pages/empresas.html">Empresas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

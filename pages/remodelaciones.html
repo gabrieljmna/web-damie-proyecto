@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Catálogo de proyectos de remodelación — Constructora Damie." />
+
+  <title>Catálogo Remodelaciones | Constructora Damie</title>
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo" aria-label="Inicio Constructora Damie">
+        <span class="logo__icon">⬛</span>
+        <span class="logo__text">Constructora <strong>Damie</strong></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menú principal">
+        <ul class="main-nav__list">
+          <li><a href="../index.html" class="main-nav__link">Inicio</a></li>
+          <li><a href="remodelaciones.html" class="main-nav__link active">Remodelaciones</a></li>
+          <li><a href="construccion-casas.html" class="main-nav__link">Construcción</a></li>
+          <li><a href="muebleria.html" class="main-nav__link">Mueblería</a></li>
+          <li><a href="empresas.html" class="main-nav__link">Empresas</a></li>
+          <li><a href="../index.html#contacto" class="btn btn--primary btn--sm">Contáctanos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Hero compacto del catálogo -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container page-hero__inner">
+        <nav aria-label="Ruta de navegación">
+          <ol class="breadcrumb">
+            <li><a href="../index.html">Inicio</a> /</li>
+            <li>Remodelaciones</li>
+          </ol>
+        </nav>
+        <h1 id="page-title" class="page-hero__title">Catálogo de Remodelaciones</h1>
+        <p class="page-hero__subtitle">
+          Explora nuestros proyectos de renovación residencial y comercial.
+          Haz clic en cualquier proyecto para ver las imágenes completas.
+        </p>
+      </div>
+    </section>
+
+    <!-- Catálogo de proyectos -->
+    <section class="section" aria-labelledby="catalog-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="catalog-title" class="section-title">Proyectos realizados</h2>
+          <p class="section-subtitle">9 proyectos de remodelación · Haz clic para ver el detalle</p>
+        </div>
+
+        <div class="catalog-grid">
+
+          <a href="detalles.html?proyecto=remo-01" class="catalog-card" aria-label="Ver proyecto: Casa Moderna Zona Norte">
+            <div class="catalog-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80"
+                alt="Cocina moderna remodelada con isla central"
+                loading="lazy" />
+            </div>
+            <div class="catalog-card__body">
+              <span class="tag">Cocina</span>
+              <h3 class="catalog-card__title">Casa Moderna — Zona Norte</h3>
+              <p class="catalog-card__meta">220 m² · 2024</p>
+            </div>
+          </a>
+
+          <a href="detalles.html?proyecto=remo-02" class="catalog-card" aria-label="Ver proyecto: Suite principal spa">
+            <div class="catalog-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80"
+                alt="Baño tipo spa con tina y azulejos de mármol"
+                loading="lazy" />
+            </div>
+            <div class="catalog-card__body">
+              <span class="tag">Baño</span>
+              <h3 class="catalog-card__title">Suite Principal Residencial</h3>
+              <p class="catalog-card__meta">Baño de lujo · 2024</p>
+            </div>
+          </a>
+
+          <a href="detalles.html?proyecto=remo-03" class="catalog-card" aria-label="Ver proyecto: Sala y comedor abiertos">
+            <div class="catalog-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=80"
+                alt="Sala de estar abierta con iluminación natural"
+                loading="lazy" />
+            </div>
+            <div class="catalog-card__body">
+              <span class="tag">Interior</span>
+              <h3 class="catalog-card__title">Sala — Comedor Integrado</h3>
+              <p class="catalog-card__meta">160 m² · 2024</p>
+            </div>
+          </a>
+
+          <a href="detalles.html?proyecto=remo-04" class="catalog-card" aria-label="Ver proyecto: Fachada renovada">
+            <div class="catalog-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80"
+                alt="Fachada exterior de casa renovada con jardín"
+                loading="lazy" />
+            </div>
+            <div class="catalog-card__body">
+              <span class="tag">Exterior</span>
+              <h3 class="catalog-card__title">Renovación de Fachada</h3>
+              <p class="catalog-card__meta">Exterior completo · 2023</p>
+            </div>
+          </a>
+
+          <a href="detalles.html?proyecto=remo-05" class="catalog-card" aria-label="Ver proyecto: Terraza moderna">
+            <div class="catalog-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80"
+                alt="Terraza exterior moderna con muebles y plantas"
+                loading="lazy" />
+            </div>
+            <div class="catalog-card__body">
+              <span class="tag">Terraza</span>
+              <h3 class="catalog-card__title">Terraza Residencial Premium</h3>
+              <p class="catalog-card__meta">80 m² · 2023</p>
+            </div>
+          </a>
+
+          <a href="detalles.html?proyecto=remo-06" class="catalog-card" aria-label="Ver proyecto: Cocina minimalista">
+            <div class="catalog-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=80"
+                alt="Cocina minimalista blanca con detalles en madera"
+                loading="lazy" />
+            </div>
+            <div class="catalog-card__body">
+              <span class="tag">Cocina</span>
+              <h3 class="catalog-card__title">Cocina Minimalista Blanca</h3>
+              <p class="catalog-card__meta">Diseño escandinavo · 2023</p>
+            </div>
+          </a>
+
+          <a href="detalles.html?proyecto=remo-07" class="catalog-card" aria-label="Ver proyecto: Recámara principal">
+            <div class="catalog-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80"
+                alt="Recámara principal con cabecera tapizada y luz cálida"
+                loading="lazy" />
+            </div>
+            <div class="catalog-card__body">
+              <span class="tag">Recámara</span>
+              <h3 class="catalog-card__title">Recámara Principal</h3>
+              <p class="catalog-card__meta">Dormitorio adulto · 2023</p>
+            </div>
+          </a>
+
+          <a href="detalles.html?proyecto=remo-08" class="catalog-card" aria-label="Ver proyecto: Oficina en casa">
+            <div class="catalog-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80"
+                alt="Oficina en casa bien iluminada con escritorio de madera"
+                loading="lazy" />
+            </div>
+            <div class="catalog-card__body">
+              <span class="tag">Home Office</span>
+              <h3 class="catalog-card__title">Remodelación Home Office</h3>
+              <p class="catalog-card__meta">Cuarto de trabajo · 2022</p>
+            </div>
+          </a>
+
+          <a href="detalles.html?proyecto=remo-09" class="catalog-card" aria-label="Ver proyecto: Patio interior">
+            <div class="catalog-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+                alt="Patio interior con jardín vertical y piso de piedra"
+                loading="lazy" />
+            </div>
+            <div class="catalog-card__body">
+              <span class="tag">Patio</span>
+              <h3 class="catalog-card__title">Patio Interior con Jardín</h3>
+              <p class="catalog-card__meta">Área exterior · 2022</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-banner">
+          <h2 id="cta-title" class="cta-banner__title">¿Listo para renovar tu espacio?</h2>
+          <p>Solicita una visita técnica sin costo y recibe una propuesta personalizada.</p>
+          <a href="../index.html#contacto" class="btn btn--accent btn--lg">Solicitar cotización</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <p class="footer__brand">Constructora <strong>Damie</strong></p>
+      <p class="footer__copy">© <span id="year"></span> Todos los derechos reservados.</p>
+      <nav aria-label="Enlaces del pie de página">
+        <ul class="footer__links">
+          <li><a href="remodelaciones.html">Remodelaciones</a></li>
+          <li><a href="construccion-casas.html">Construcción</a></li>
+          <li><a href="muebleria.html">Mueblería</a></li>
+          <li><a href="empresas.html">Empresas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
