@@ -326,10 +326,276 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
 @media (min-width: 980px) {
   .project-card-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* =============================================
+   PROJECTS GRID — Cuadrícula responsiva minimalista arquitectónica
+   ============================================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 0 var(--space-4);
+}
+
+/* Tarjeta de proyecto minimalista arquitectónica */
+.project-card {
+  background: var(--color-white);
+  border: 1px solid rgba(37, 99, 168, 0.12);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  isolation: isolate;
+}
+
+/* Efecto de elevación flotante elegante */
+.project-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow:
+    0 20px 40px rgba(26, 58, 92, 0.12),
+    0 8px 16px rgba(26, 58, 92, 0.08),
+    0 2px 4px rgba(26, 58, 92, 0.04);
+  border-color: rgba(37, 99, 168, 0.25);
+}
+
+/* Elemento decorativo arquitectónico (línea superior) */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 50%,
+    var(--color-primary-dark) 100%);
+  opacity: 0.7;
+  z-index: 1;
+  transition: opacity var(--transition-fast);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* Contenedor de imagen arquitectónica */
+.project-card__media {
+  height: 240px;
+  background: linear-gradient(135deg,
+    rgba(26, 58, 92, 0.03) 0%,
+    rgba(37, 99, 168, 0.05) 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Efecto de superposición arquitectónica */
+.project-card__media::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom,
+    rgba(26, 58, 92, 0) 0%,
+    rgba(26, 58, 92, 0.02) 100%);
+  pointer-events: none;
+}
+
+.project-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-card__media img {
+  transform: scale(1.08);
+}
+
+/* Cuerpo de la tarjeta - diseño minimalista */
+.project-card__body {
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex: 1;
+  background: var(--color-white);
+}
+
+/* Encabezado de tarjeta con tipografía arquitectónica */
+.project-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.project-card__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+  color: var(--color-heading);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.01em;
+}
+
+.project-card__subtitle {
+  margin: 0;
+  color: var(--color-gray-600);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Descripción minimalista */
+.project-card__description {
+  margin: 0;
+  color: var(--color-gray-700);
+  line-height: var(--leading-relaxed);
+  font-size: var(--text-base);
+  flex: 1;
+}
+
+/* Etiquetas arquitectónicas */
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.project-card__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: rgba(37, 99, 168, 0.08);
+  color: var(--color-primary-dark);
+  font-weight: var(--font-medium);
+  font-size: var(--text-xs);
+  border: 1px solid rgba(37, 99, 168, 0.15);
+  transition: all var(--transition-fast);
+}
+
+.project-card__tag:hover {
+  background: rgba(37, 99, 168, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Pie de tarjeta con acción */
+.project-card__footer {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(37, 99, 168, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-card__meta {
+  color: var(--color-gray-500);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+}
+
+.project-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: var(--font-semi);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.project-card__btn:hover {
+  transform: translateY(-2px);
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  box-shadow: 0 4px 12px rgba(37, 99, 168, 0.2);
+}
+
+.project-card__btn:focus-visible {
+  outline: 3px solid rgba(37, 99, 168, 0.35);
+  outline-offset: 3px;
+}
+
+/* Responsividad para la cuadrícula */
+@media (min-width: 640px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+  
+  .project-card__media {
+    height: 220px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-8);
+    padding: 0;
+  }
+  
+  .project-card__media {
+    height: 260px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .projects-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Efectos de animación sutil para carga */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projects-grid > * {
+  animation: cardFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.projects-grid > *:nth-child(1) { animation-delay: 0.1s; }
+.projects-grid > *:nth-child(2) { animation-delay: 0.2s; }
+.projects-grid > *:nth-child(3) { animation-delay: 0.3s; }
+.projects-grid > *:nth-child(4) { animation-delay: 0.4s; }
+.projects-grid > *:nth-child(5) { animation-delay: 0.5s; }
+.projects-grid > *:nth-child(6) { animation-delay: 0.6s; }
 
