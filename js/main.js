@@ -61,3 +61,19 @@
   });
 })();
 
+// 4) Detectar scroll para mejorar visibilidad del header en móviles
+(function initScrollHeader() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  function handleScroll() {
+    const scrolled = window.scrollY > 20;
+    header.classList.toggle('scrolled', scrolled);
+  }
+
+  // Ejecutar al cargar y al hacer scroll
+  handleScroll();
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', handleScroll);
+})();
+

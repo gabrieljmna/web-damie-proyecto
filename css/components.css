@@ -666,3 +666,75 @@
 .projects-grid > *:nth-child(5) { animation-delay: 0.5s; }
 .projects-grid > *:nth-child(6) { animation-delay: 0.6s; }
 
+/* =============================================
+   ICONOS SOCIALES (Instagram y WhatsApp)
+   ============================================= */
+
+/* Contenedor para iconos sociales */
+.social-icons {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  margin-top: var(--space-4);
+}
+
+/* Enlace de icono social */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  border: 2px solid var(--color-border);
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary-light);
+}
+
+.social-link:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Icono de Instagram */
+.social-link--instagram:hover {
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+  border-color: transparent;
+}
+
+/* Icono de WhatsApp */
+.social-link--whatsapp:hover {
+  background: #25D366;
+  border-color: transparent;
+}
+
+/* Imagen dentro del enlace social */
+.social-link img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Para secciones de contacto - iconos más grandes */
+.contact .social-icons {
+  margin-top: var(--space-6);
+  justify-content: flex-start;
+}
+
+.contact .social-link {
+  width: 56px;
+  height: 56px;
+}
+
+.contact .social-link img {
+  width: 28px;
+  height: 28px;
+}
+

@@ -41,6 +41,15 @@ No inventar rutas nuevas: respetar el árbol de carpetas existente y reutilizar 
 - Comentarios explicativos en español en secciones importantes
 - Documenta por comentarios, tambien deja mini guias dentro de ciertas tareas, por ejemplo, el agregado de elementos tipo tarjeta para añadir productos en los diferentes catalogos
 
+## 🛑 Control de Crecimiento y Modularidad (Anti-Bloat)
+- **Límite de líneas por archivo:** Ningún archivo CSS o JS individual debe superar las **250 líneas de código**. Si un archivo se acerca a este límite, el agente DEBE proponer una refactorización o división antes de seguir escribiendo.
+- **Segmentación de JavaScript por características (Features):** `js/main.js` solo debe contener la lógica global (inicializaciones, modo oscuro, menú de navegación general). Cualquier lógica específica (ej. validación del formulario de contacto, interactividad de la galería de proyectos, filtros) debe ir en su propio archivo independiente (ej. `js/contacto.js`, `js/proyectos.js`).
+- **Anatomía interna de `css/components.css`:** Para evitar que este archivo sea un caos, cada componente debe estar estrictamente delimitado por banners de comentarios y estructurado visualmente así:
+  ```css
+  /* ==========================================================================
+     COMPONENT: Project Card (.project-card)
+     ========================================================================== */
+
 
 ## Checklist antes de entregar
 - HTML sin atributos `style="..."` y sin `<script>...</script>` (solo `<script src="...">` externo).

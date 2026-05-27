@@ -105,26 +105,53 @@ a {
 
 .nav-toggle {
   display: none; /* Visible en móviles */
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   background: var(--color-white);
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  transition: all var(--transition-fast);
+  position: relative;
 }
 
-.nav-toggle__bar {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: var(--color-gray-700);
-  border-radius: var(--radius-full);
-  margin: 3px 0;
+.nav-toggle:hover {
+  background: var(--color-gray-100);
+  border-color: var(--color-primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-toggle:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Icono hamburguesa usando carácter Unicode "☰" (U+2630) */
+.nav-toggle__icon {
+  display: inline-block;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-gray-900);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+  transform-origin: center;
+}
+
+/* Efecto cuando el menú está abierto (controlado por JS) */
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon {
+  transform: rotate(90deg);
+  opacity: 0.8;
 }
 
 /* Navegación */
+.main-nav {
+  /* Estilos por defecto para desktop */
+  display: flex;
+  align-items: center;
+}
+
 .main-nav__list {
   list-style: none;
   padding: 0;
@@ -205,6 +232,31 @@ a {
 
   .nav-toggle {
     display: inline-flex;
+  }
+
+  /* Mejorar visibilidad del botón en móviles con scroll */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-white);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: box-shadow var(--transition-fast), background var(--transition-fast);
+  }
+
+  .site-header.scrolled {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Asegurar que el botón sea claramente visible */
+  .nav-toggle {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-toggle:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   }
 
   .main-nav {

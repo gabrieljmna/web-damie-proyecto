@@ -44,10 +44,10 @@
       </a>
 
       <!-- Botón hamburguesa (solo móviles) -->
+      <!-- NOTA: Se usa el carácter Unicode "☰" (U+2630) para representar el menú hamburguesa -->
+      <!-- Esto garantiza que se vea exactamente como el símbolo deseado "☰" -->
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__icon" aria-hidden="true">☰</span>
       </button>
 
       <!-- Menú de navegación principal -->
@@ -208,6 +208,26 @@
             <li>✉️ <a href="mailto:info@constructoradamie.com">info@constructoradamie.com</a></li>
             <li>📍 Ciudad, País</li>
           </ul>
+
+          <!-- ========================================
+               ICONOS SOCIALES - Instagram y WhatsApp
+               ======================================== -->
+          <div class="social-icons">
+            <!-- Instagram: Reemplaza # con el enlace real de Instagram -->
+            <a href="#" class="social-link social-link--instagram" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram">
+              <img src="assets/images/Instagram-Logo.png" alt="Instagram" class="social-link__img">
+            </a>
+
+            <!-- WhatsApp:
+                 - Reemplaza 1234567890 con el número real (formato internacional sin +)
+                 - Reemplaza "Hola%20Constructora%20Damie" con el mensaje predefinido
+                 - Ejemplo completo: https://wa.me/1234567890?text=Hola%20Constructora%20Damie
+            -->
+            <a href="https://wa.me/1234567890?text=Hola%20Constructora%20Damie" class="social-link social-link--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp">
+              <img src="assets/images/WhatsApp_icon.png" alt="WhatsApp" class="social-link__img">
+            </a>
+          </div>
+          <!-- FIN ICONOS SOCIALES -->
         </div>
 
         <!-- Formulario de contacto — acción real se configura con JS o backend -->
@@ -257,6 +277,24 @@
           <li><a href="pages/empresas.html">Empresas</a></li>
         </ul>
       </nav>
+      <!-- Iconos sociales en el footer -->
+      <div class="social-icons" style="margin-top: var(--space-4); justify-content: center;">
+        <!-- Instagram -->
+        <a href="#" class="social-link social-link--instagram"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Síguenos en Instagram">
+          <img src="assets/images/Instagram-Logo.png" alt="Instagram" width="32" height="32">
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/1234567890?text=Hola%20Constructora%20Damie"
+           class="social-link social-link--whatsapp"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Contáctanos por WhatsApp">
+          <img src="assets/images/WhatsApp_icon.png" alt="WhatsApp" width="32" height="32">
+        </a>
+      </div>
     </div>
   </footer>
 

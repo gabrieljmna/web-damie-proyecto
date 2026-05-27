@@ -35,10 +35,9 @@
         <img src="../assets/images/logo-principal.jpg" alt="Constructora Damie" class="logo__image">
         <span class="logo__text">Constructora <strong>Damie</strong></span>
       </a>
+      <!-- Botón hamburguesa con carácter Unicode "☰" (U+2630) -->
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__icon" aria-hidden="true">☰</span>
       </button>
       <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menú principal">
         <ul class="main-nav__list">
@@ -202,6 +201,22 @@
           <h2 id="cta-title" class="cta-banner__title">Impulsa tu negocio con espacios de calidad</h2>
           <p>Contáctanos para una evaluación técnica y propuesta comercial adaptada a tu empresa.</p>
           <a href="../index.html#contacto" class="btn btn--accent btn--lg">Contactar equipo B2B</a>
+          
+          <!-- Iconos sociales para contacto directo -->
+          <div class="social-icons" style="margin-top: var(--space-6); justify-content: center;">
+            <!-- Instagram: Reemplaza # con el enlace real de Instagram -->
+            <a href="#" class="social-link social-link--instagram" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram">
+              <img src="../assets/images/Instagram-Logo.png" alt="Instagram" class="social-link__img">
+            </a>
+
+            <!-- WhatsApp: Reemplaza 1234567890 con el número real y el mensaje -->
+            <a href="https://wa.me/1234567890?text=Hola%20Constructora%20Damie,%20me%20interesa%20saber%20más%20sobre%20proyectos%20empresariales" class="social-link social-link--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp">
+              <img src="../assets/images/WhatsApp_icon.png" alt="WhatsApp" class="social-link__img">
+            </a>
+          </div>
+          <p class="text-sm" style="margin-top: var(--space-2); color: var(--color-gray-600); text-align: center;">
+            También puedes contactarnos directamente por redes sociales
+          </p>
         </div>
       </div>
     </section>
@@ -220,6 +235,24 @@
           <li><a href="empresas.html">Empresas</a></li>
         </ul>
       </nav>
+      <!-- Iconos sociales en el footer -->
+      <div class="social-icons" style="margin-top: var(--space-4); justify-content: center;">
+        <!-- Instagram -->
+        <a href="#" class="social-link social-link--instagram"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Síguenos en Instagram">
+          <img src="../assets/images/Instagram-Logo.png" alt="Instagram" width="32" height="32">
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/1234567890?text=Hola%20Constructora%20Damie,%20me%20interesa%20información%20sobre%20proyectos%20empresariales"
+           class="social-link social-link--whatsapp"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Contáctanos por WhatsApp">
+          <img src="../assets/images/WhatsApp_icon.png" alt="WhatsApp" width="32" height="32">
+        </a>
+      </div>
     </div>
   </footer>
 
