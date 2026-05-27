@@ -11,10 +11,25 @@
   <link rel="stylesheet" href="../css/layout.css" />
   <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="../css/pages.css" />
+  <!-- Optimizaciones de rendimiento (cargar después de estilos principales) -->
+  <link rel="stylesheet" href="../css/performance.css" />
+
+  <!-- Preload de recursos críticos -->
+  <link rel="preload" href="../css/variables.css" as="style">
+  <link rel="preload" href="../js/main.js" as="script">
+  <link rel="preload" href="../js/detalles.js" as="script">
+  
   <script src="../js/main.js" defer></script>
   <script src="../js/detalles.js" defer></script>
+  <!-- Script de performance (cargar después del DOM) -->
+  <script src="../js/performance.js" defer></script>
 </head>
 <body>
+
+  <!-- Skip link para navegación por teclado (accesibilidad) -->
+  <a href="#main-content" class="skip-link">
+    Saltar al contenido principal
+  </a>
 
   <header class="site-header">
     <div class="container header-inner">

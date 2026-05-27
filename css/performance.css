@@ -1,0 +1,244 @@
+/* =============================================
+   performance.css — Optimizaciones de rendimiento
+   Constructora Damie
+   ============================================= */
+
+/* 1. CONTENIDO CRÍTICO (Above-the-fold)
+   Estilos necesarios para el renderizado inicial */
+.critical-styles {
+  /* Estas clases se inyectan directamente en el <head> para el primer render */
+}
+
+/* 2. OPTIMIZACIONES DE RENDIMIENTO CSS */
+
+/* 2.1. Contención (Containment) - Mejora el rendimiento de renderizado */
+.card,
+.catalog-card,
+.service-card {
+  contain: layout style paint;
+  /* Aísla el renderizado de estos componentes */
+}
+
+/* 2.2. Propiedades que evitan repaints costosos */
+.card,
+.catalog-card {
+  will-change: transform;
+  /* Solo cuando sea necesario para animaciones */
+}
+
+/* 2.3. Optimización de transiciones */
+.card,
+.btn,
+.nav-toggle {
+  transition-property: transform, opacity, background-color, border-color;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2.4. Mejor rendimiento para transformaciones 3D */
+.card:hover {
+  transform: translateY(-4px);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 3. LAZY LOADING PARA IMÁGENES */
+.lazy-img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-img.loaded {
+  opacity: 1;
+}
+
+/* Placeholder para imágenes en carga */
+.img-placeholder {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+/* 4. OPTIMIZACIONES DE TEXTO */
+/* Evitar cambios de layout con fuentes web */
+body {
+  font-display: swap;
+  /* Muestra texto con fuente de respaldo mientras carga la web font */
+}
+
+/* 5. MEDIA QUERIES OPTIMIZADAS */
+/* Agrupar por breakpoints para mejor rendimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 6. OPTIMIZACIONES PARA MÓVILES */
+/* Mejor rendimiento táctil */
+@media (hover: none) and (pointer: coarse) {
+  .card:hover {
+    transform: none;
+  }
+  
+  .btn:hover {
+    transform: none;
+  }
+}
+
+/* 7. CONTENIDO OCULTO PARA MEJOR PERFORMANCE */
+/* Elementos que no son visibles inicialmente */
+[hidden],
+.hidden {
+  display: none !important;
+}
+
+/* 8. OPTIMIZACIONES DE GRID/FLEX */
+/* Mejor rendimiento para layouts complejos */
+.projects__grid,
+.catalog-grid,
+.services__grid {
+  /* Usar grid para mejor rendimiento que flex en algunos casos */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+/* 9. ANIMACIONES OPTIMIZADAS */
+/* Usar transform y opacity en lugar de propiedades costosas */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* 10. OPTIMIZACIONES DE IMPRESIÓN */
+@media print {
+  .card,
+  .catalog-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* 11. PREFERENCIAS DE USUARIO */
+/* Respetar preferencias del sistema */
+@media (prefers-color-scheme: dark) {
+  .img-placeholder {
+    background: linear-gradient(90deg, #2d2d2d 25%, #3d3d3d 50%, #2d2d2d 75%);
+  }
+}
+
+/* 12. OPTIMIZACIONES DE SCROLL */
+/* Mejor rendimiento para scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Deshabilitar scroll suave si el usuario prefiere reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* 13. OPTIMIZACIONES DE MEMORIA */
+/* Limitar el uso de efectos de desenfoque costosos */
+.card--blur {
+  backdrop-filter: blur(4px);
+  /* Solo usar cuando sea necesario, es costoso */
+}
+
+/* 14. OPTIMIZACIONES DE CARGA */
+/* Estilos para estado de carga */
+.loading {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 15. MEJORES PRÁCTICAS PARA IMÁGENES */
+img {
+  max-width: 100%;
+  height: auto;
+  /* Previene layout shifts */
+}
+
+/* Imágenes de fondo optimizadas */
+.bg-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 16. OPTIMIZACIONES DE FORMULARIOS */
+input,
+button,
+select,
+textarea {
+  font: inherit;
+  /* Mejor rendimiento al heredar fuentes */
+}
+
+/* 17. REDUCCIÓN DE LAYOUT SHIFTS */
+/* Mantener aspect ratio para imágenes */
+.aspect-ratio {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 por defecto */
+  height: 0;
+  overflow: hidden;
+}
+
+.aspect-ratio img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 18. OPTIMIZACIONES DE CACHE */
+/* Clases para contenido cacheable */
+.cacheable {
+  /* Elementos que no cambian frecuentemente */
+}
+
+/* 19. OPTIMIZACIONES DE ANIMACIONES CSS */
+/* Usar propiedades de hardware acceleration */
+.hw-accelerate {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* 20. MEDIDAS DE PERFORMANCE */
+/* Clases para medición y debugging */
+.perf-marker {
+  /* Usar para debugging de rendimiento */
+}
+
+/* =============================================
+   NOTAS DE IMPLEMENTACIÓN:
+   
+   1. Incluir este archivo después de los estilos principales
+   2. Considerar inyectar estilos críticos en el <head>
+   3. Implementar lazy loading con Intersection Observer
+   4. Minificar y comprimir CSS en producción
+   5. Usar CDN para assets estáticos
+   ============================================= */

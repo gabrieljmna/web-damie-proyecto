@@ -3,6 +3,53 @@
    Constructora Damie
    ============================================= */
 
+/* Importar sistema modular de tarjetas */
+@import url('./components/cards.css');
+
+/* =============================================
+   ACCESIBILIDAD
+   ============================================= */
+
+/* Skip link para navegación por teclado */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-2) var(--space-4);
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-md) 0;
+  font-weight: var(--font-semi);
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+
+/* Mejoras de focus para accesibilidad */
+:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* =============================================
+   BOTONES
+   ============================================= */
+
 /* Botones */
 .btn {
   display: inline-flex;
@@ -69,91 +116,24 @@
   border-color: rgba(37, 99, 168, 0.55);
 }
 
-/* Tarjetas */
-.card {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-}
-
-.card--service {
-  padding: var(--space-6);
-}
-
-.card__icon {
-  width: 54px;
-  height: 54px;
-  border-radius: var(--radius-md);
-  display: grid;
-  place-items: center;
-  background: rgba(37, 99, 168, 0.08);
-  color: var(--color-primary-dark);
-  font-size: 22px;
-  margin-bottom: var(--space-4);
-}
-
-.card__title {
-  margin: 0 0 var(--space-2);
-  font-size: 1.1rem;
-  font-weight: var(--font-bold);
-  color: var(--color-heading);
-}
-
-.card__desc {
-  margin: 0 0 var(--space-4);
-  color: var(--color-gray-700);
-  line-height: var(--leading-normal);
-}
-
-.card__link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-weight: var(--font-semi);
-  color: var(--color-primary-dark);
-  padding: 0.35rem 0;
-  border-radius: var(--radius-sm);
-}
-
-.card__link:hover {
-  color: var(--color-primary);
-}
-
-/* Proyecto */
-.card--project {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.card__thumb {
-  height: 190px;
-  background: rgba(37, 99, 168, 0.08);
-}
-
-.card__thumb--placeholder {
-  /* Placeholder visual para que el layout no se vea vacío */
-  background:
-    linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(37, 99, 168, 0.55)),
-    radial-gradient(circle at 20% 10%, rgba(232, 160, 32, 0.45), transparent 50%);
-}
-
-.card__body {
-  padding: var(--space-6);
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-full);
-  background: rgba(59, 130, 246, 0.12); /* Azul claro suave */
-  color: var(--color-primary-dark);
-  font-weight: var(--font-semi);
-  font-size: var(--text-xs);
-  margin-bottom: var(--space-3);
-}
+/* =============================================
+   SISTEMA DE TARJETAS
+   =============================================
+   Los estilos de tarjetas han sido movidos a un archivo modular
+   para mejor organización y escalabilidad.
+   
+   Archivo: css/components/cards.css
+   
+   Contiene:
+   - Tarjeta base (.card) y variantes (.card--service, .card--project, .card--catalog)
+   - Elementos internos (.card__icon, .card__thumb, .card__body, .card__title, .card__desc)
+   - Componentes adicionales (.tag, .card__meta, .card__link)
+   - Responsividad completa
+   - Utilidades para desarrollo
+   
+   Para agregar nuevos tipos de tarjeta, editar el archivo cards.css
+   manteniendo la convención de nombres establecida.
+*/
 
 /* Secciones */
 .section-header {
@@ -233,7 +213,7 @@
 }
 
 /* =============================================
-   PROJECT CARDS — Catálogo por tarjetas
+   PROJECT CARDS — Catálogo por tarjetas (versión anterior - mantenida para compatibilidad)
    ============================================= */
 
 .project-card-grid {
@@ -242,61 +222,12 @@
   gap: var(--space-6);
 }
 
-.project-card {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
+/* NOTA: Las definiciones de .project-card anteriores se han movido a la nueva sección arquitectónica */
+/* para evitar conflictos y duplicación de estilos */
 
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-
-.project-card__media {
-  height: 220px;
-  background: rgba(37, 99, 168, 0.08);
-  overflow: hidden;
-}
-
-.project-card__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transform: scale(1);
-  transition: transform var(--transition-slow);
-}
-
-.project-card:hover .project-card__media img {
-  transform: scale(1.07);
-}
-
-.project-card__body {
-  padding: var(--space-5) var(--space-4);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  flex: 1;
-}
-
-.project-card__title {
-  margin: 0;
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  line-height: var(--leading-tight);
-  color: var(--color-heading);
-  font-weight: var(--font-bold);
-}
-
-.project-card__btn {
+.project-card__btn--legacy {
   margin-top: auto;
+  margin-left: var(--space-3);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -310,13 +241,13 @@
   transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
 }
 
-.project-card__btn:hover {
+.project-card__btn--legacy:hover {
   transform: translateY(-1px);
   background: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
 }
 
-.project-card__btn:focus-visible {
+.project-card__btn--legacy:focus-visible {
   outline: 3px solid rgba(37, 99, 168, 0.35);
   outline-offset: 3px;
 }
@@ -350,16 +281,22 @@
   background: var(--color-white);
   border: 1px solid rgba(37, 99, 168, 0.12);
   border-radius: var(--radius-xl);
-  overflow: hidden;
+  /* Cambiado de overflow: hidden a visible para contenido de texto */
+  overflow: visible;
   box-shadow:
     0 4px 12px rgba(0, 0, 0, 0.04),
     0 1px 2px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  /* Altura mínima aumentada significativamente para todo el contenido */
+  min-height: 480px;
   transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   isolation: isolate;
+  /* Asegurar que todo el contenido sea visible */
+  height: auto;
+  /* Espacio adicional en la parte inferior para metadata */
+  padding-bottom: var(--space-2);
 }
 
 /* Efecto de elevación flotante elegante */
@@ -399,8 +336,11 @@
   background: linear-gradient(135deg,
     rgba(26, 58, 92, 0.03) 0%,
     rgba(37, 99, 168, 0.05) 100%);
+  /* Solo overflow hidden para la imagen, no para el contenido general */
   overflow: hidden;
   position: relative;
+  /* Asegurar que no afecte al contenido de texto */
+  z-index: 0;
 }
 
 /* Efecto de superposición arquitectónica */
@@ -430,14 +370,15 @@
   transform: scale(1.08);
 }
 
-/* Cuerpo de la tarjeta - diseño minimalista */
+/* Cuerpo de la tarjeta - diseño minimalista con margen interno elegante */
 .project-card__body {
-  padding: var(--space-6) var(--space-5);
+  padding: var(--space-7) var(--space-7) var(--space-8);
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
   flex: 1;
   background: var(--color-white);
+  /* Margen interno generoso en todos los lados */
 }
 
 /* Encabezado de tarjeta con tipografía arquitectónica */
@@ -448,13 +389,15 @@
 }
 
 .project-card__title {
-  margin: 0;
+  margin: 0 0 var(--space-3);
   font-family: var(--font-heading);
-  font-size: var(--text-2xl);
+  font-size: 1.25rem;
   line-height: var(--leading-tight);
   color: var(--color-heading);
   font-weight: var(--font-bold);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
+  text-align: left;
+  padding-left: var(--space-3);
 }
 
 .project-card__subtitle {
@@ -466,13 +409,37 @@
   letter-spacing: 0.05em;
 }
 
-/* Descripción minimalista */
+/* Descripción minimalista - texto claro y legible */
 .project-card__description {
-  margin: 0;
+  margin: var(--space-3) 0;
   color: var(--color-gray-700);
   line-height: var(--leading-relaxed);
-  font-size: var(--text-base);
-  flex: 1;
+  font-size: 0.95rem;
+  text-align: left;
+  padding-left: var(--space-5);
+  /* Eliminado flex: 1 para evitar problemas de expansión */
+  max-height: none;
+  overflow: visible;
+  /* Mejor contraste y legibilidad */
+  font-weight: var(--font-normal);
+  letter-spacing: 0.01em;
+}
+
+/* Asegurar que el cuerpo de la tarjeta tenga espacio suficiente */
+.project-card__body {
+  padding: var(--space-7) var(--space-7) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  /* Altura mínima aumentada para contenido extenso */
+  min-height: 220px;
+  background: var(--color-white);
+  /* Permitir que el contenido crezca naturalmente */
+  flex-grow: 1;
+  /* Asegurar que todo el texto sea visible */
+  overflow: visible;
+  position: relative;
+  z-index: 2;
 }
 
 /* Etiquetas arquitectónicas */
@@ -501,20 +468,29 @@
   transform: translateY(-1px);
 }
 
-/* Pie de tarjeta con acción */
+/* Pie de tarjeta con acción - Asegurada visibilidad completa */
 .project-card__footer {
-  margin-top: var(--space-4);
-  padding-top: var(--space-4);
-  border-top: 1px solid rgba(37, 99, 168, 0.08);
+  margin-top: var(--space-6);
+  padding: var(--space-4) 0 0;
+  border-top: 1px solid rgba(37, 99, 168, 0.12);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* Asegurar que no sea tapado */
+  position: relative;
+  z-index: 3;
+  background: var(--color-white);
 }
 
 .project-card__meta {
-  color: var(--color-gray-500);
+  color: var(--color-gray-700);
   font-size: var(--text-sm);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-semi);
+  /* Mejor contraste y visibilidad */
+  padding: var(--space-2) var(--space-3);
+  background: rgba(37, 99, 168, 0.05);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(37, 99, 168, 0.1);
 }
 
 .project-card__btn {
@@ -556,6 +532,10 @@
   .project-card__media {
     height: 220px;
   }
+  
+  .project-card {
+    min-height: 460px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -567,6 +547,14 @@
   
   .project-card__media {
     height: 260px;
+  }
+  
+  .project-card {
+    min-height: 500px;
+  }
+  
+  .project-card__body {
+    padding: var(--space-8) var(--space-7) var(--space-9);
   }
 }
 

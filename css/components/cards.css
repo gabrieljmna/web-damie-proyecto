@@ -1,0 +1,377 @@
+/* =============================================
+   cards.css — Sistema de tarjetas modular y escalable
+   Constructora Damie
+   ============================================= */
+
+/* NOTA: Este archivo contiene todos los estilos relacionados con tarjetas.
+   Para agregar un nuevo tipo de tarjeta:
+   1. Crear una clase base .card--{tipo}
+   2. Definir variantes específicas si es necesario
+   3. Añadir elementos internos con la convención .card__{elemento}
+   4. Probar responsividad en todos los breakpoints
+*/
+
+/* =============================================
+   TARJETA BASE
+   Estilos fundamentales aplicables a todas las tarjetas
+   ============================================= */
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* =============================================
+   VARIANTES DE TARJETA
+   Modificadores para diferentes tipos de contenido
+   ============================================= */
+
+/* Tarjeta de servicio (icono + texto) */
+.card--service {
+  padding: var(--space-6);
+  text-align: center;
+}
+
+/* Tarjeta de proyecto (imagen + contenido) */
+.card--project {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 380px; /* Altura mínima para consistencia visual */
+}
+
+/* Tarjeta de catálogo (enlace completo con imagen destacada) */
+.card--catalog {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =============================================
+   ELEMENTOS INTERNOS DE TARJETA
+   Componentes reutilizables dentro de cualquier tarjeta
+   ============================================= */
+
+/* Icono decorativo (usado en tarjetas de servicio) */
+.card__icon {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+  background: rgba(37, 99, 168, 0.08);
+  color: var(--color-primary-dark);
+  font-size: 22px;
+  margin-bottom: var(--space-4);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Imagen/thumbnail (usado en tarjetas de proyecto y catálogo) */
+.card__thumb {
+  height: 190px;
+  background: rgba(37, 99, 168, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Placeholder visual para imágenes faltantes */
+.card__thumb--placeholder {
+  background:
+    linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(37, 99, 168, 0.55)),
+    radial-gradient(circle at 20% 10%, rgba(232, 160, 32, 0.45), transparent 50%);
+}
+
+/* Cuerpo de la tarjeta (contenido textual) */
+.card__body {
+  padding: var(--space-7) var(--space-8) var(--space-8);
+  /* Sistema de padding elegante:
+     - Superior: var(--space-7) = 28px
+     - Laterales: var(--space-8) = 32px  
+     - Inferior: var(--space-8) = 32px
+  */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* =============================================
+   ELEMENTOS DE CONTENIDO
+   Tipografía y componentes dentro del cuerpo
+   ============================================= */
+
+/* Título de tarjeta */
+.card__title {
+  margin: 0 0 var(--space-3);
+  font-size: 1rem;
+  font-weight: var(--font-bold);
+  padding-left: var(--space-4); /* Separación del borde izquierdo */
+  color: var(--color-heading);
+  text-align: left;
+  line-height: var(--leading-tight);
+}
+
+/* Descripción/Texto principal */
+.card__desc {
+  margin: 0 0 var(--space-4);
+  color: var(--color-gray-700);
+  line-height: var(--leading-relaxed);
+  font-size: 0.95rem;
+  text-align: left;
+  padding-left: var(--space-5); /* Mayor separación para mejor legibilidad */
+  flex-grow: 1; /* Permite que la descripción ocupe espacio disponible */
+}
+
+/* Enlace de acción */
+.card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--font-semi);
+  color: var(--color-primary-dark);
+  padding: 0.35rem 0;
+  padding-left: var(--space-5); /* Alineado con la descripción */
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+  align-self: flex-start; /* Mantiene alineación a la izquierda */
+}
+
+.card__link:hover {
+  color: var(--color-primary);
+}
+
+/* =============================================
+   COMPONENTES ADICIONALES
+   Elementos opcionales para enriquecer tarjetas
+   ============================================= */
+
+/* Etiqueta/Tag (categoría, badge) */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: rgba(59, 130, 246, 0.12); /* Azul claro suave */
+  color: var(--color-primary-dark);
+  font-weight: var(--font-semi);
+  font-size: var(--text-xs);
+  margin-left: var(--space-4); /* Alineado con el título */
+  margin-bottom: var(--space-3);
+  align-self: flex-start; /* Se posiciona al inicio del contenedor */
+}
+
+/* Metadatos (fecha, tamaño, ubicación) */
+.card__meta {
+  color: var(--color-gray-500);
+  font-size: 0.85rem;
+  margin-top: var(--space-2);
+  padding-left: var(--space-4); /* Alineado con el contenido */
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* =============================================
+   RESPONSIVIDAD
+   Ajustes para diferentes tamaños de pantalla
+   ============================================= */
+
+/* Tabletas (≥ 640px) */
+@media (min-width: 640px) {
+  .card--project {
+    min-height: 420px;
+  }
+  
+  .card__thumb {
+    height: 220px;
+  }
+  
+  .card__body {
+    padding: var(--space-8) var(--space-8) var(--space-9);
+  }
+}
+
+/* Escritorio (≥ 1024px) */
+@media (min-width: 1024px) {
+  .card--project {
+    min-height: 460px;
+  }
+  
+  .card__thumb {
+    height: 260px;
+  }
+  
+  .card__title {
+    font-size: 1.1rem;
+  }
+  
+  .card__desc {
+    font-size: 1rem;
+  }
+}
+
+/* Pantallas grandes (≥ 1280px) */
+@media (min-width: 1280px) {
+  .card--project {
+    min-height: 480px;
+  }
+}
+
+/* =============================================
+   UTILIDADES PARA DESARROLLO
+   Clases helper para testing y prototipado
+   ============================================= */
+
+/* Indicador visual para tarjetas sin imagen */
+.card--no-image .card__thumb {
+  background: linear-gradient(135deg, #f5f6f8, #e8eaed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray-400);
+  font-size: var(--text-sm);
+}
+
+/* Estado de carga (skeleton) */
+.card--loading .card__thumb,
+.card--loading .card__title,
+.card--loading .card__desc {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  color: transparent;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* =============================================
+   TARJETA DE TESTIMONIO
+   Para citas de clientes, reseñas, opiniones
+   ============================================= */
+.card--testimonial {
+  border-left: 4px solid var(--color-primary);
+  padding-left: var(--space-5);
+  position: relative;
+  background-color: var(--color-gray-50);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.card--testimonial:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.card--testimonial::before {
+  content: "❝";
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  font-size: var(--text-3xl);
+  color: var(--color-primary-light);
+  opacity: 0.3;
+  font-family: serif;
+}
+
+.card__quote {
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--color-gray-700);
+  margin-bottom: var(--space-4);
+  position: relative;
+  z-index: 1;
+  font-size: var(--text-base);
+}
+
+.card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.card__author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: var(--color-gray-200);
+}
+
+.card__author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__author-info {
+  flex: 1;
+}
+
+.card__author-name {
+  font-weight: 600;
+  color: var(--color-gray-900);
+  margin-bottom: 2px;
+}
+
+.card__author-company {
+  font-size: var(--text-sm);
+  color: var(--color-gray-500);
+}
+
+/* Variante de testimonio sin avatar */
+.card--testimonial.card--no-avatar {
+  padding-left: var(--space-6);
+}
+
+.card--testimonial.card--no-avatar::before {
+  left: var(--space-6);
+}
+
+/* =============================================
+   NOTAS PARA DESARROLLADORES
+   ============================================= */
+
+/*
+  GUÍA PARA AGREGAR NUEVOS TIPOS DE TARJETA:
+  
+  1. Tarjeta de equipo/miembro:
+     .card--team {
+       text-align: center;
+     }
+     .card__avatar { ... }
+     .card__role { ... }
+  
+  2. Tarjeta de testimonio:
+     .card--testimonial {
+       border-left: 4px solid var(--color-primary);
+     }
+     .card__quote { ... }
+     .card__author { ... }
+  
+  3. Tarjeta de estadística:
+     .card--stat {
+       text-align: center;
+       padding: var(--space-8);
+     }
+     .card__number { ... }
+     .card__label { ... }
+  
+  RECOMENDACIONES:
+  - Mantener consistencia en padding y márgenes
+  - Usar variables CSS para todos los valores
+  - Probar hover states y estados de focus
+  - Verificar accesibilidad (contraste, tamaño de texto)
+*/

@@ -188,21 +188,29 @@
 }
 
 .catalog-card__body {
-  padding: var(--space-4) var(--space-4) var(--space-5);
+  padding: var(--space-6) var(--space-6) var(--space-7);
+  /* Margen interno elegante para catálogo */
 }
 
 .catalog-card__title {
-  margin: var(--space-2) 0 var(--space-2);
-  font-size: var(--text-base);
+  margin: var(--space-3) 0 var(--space-3);
+  font-size: 0.95rem;
   font-weight: var(--font-bold);
   color: var(--color-heading);
   line-height: var(--leading-tight);
+  text-align: left;
+  padding-left: var(--space-4);
 }
 
 .catalog-card__meta {
-  margin: 0;
-  font-size: var(--text-sm);
-  color: var(--color-gray-400);
+  margin: var(--space-2) 0 0;
+  font-size: 0.85rem;
+  color: var(--color-gray-500);
+  text-align: left;
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding-left: var(--space-4);
 }
 
 @media (min-width: 560px) {
