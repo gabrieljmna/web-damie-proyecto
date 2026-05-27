@@ -450,9 +450,33 @@ const PROYECTOS = {
 // Lógica principal
 // =============================================
 (function initDetalle() {
+  // FUNCIÓN DE SANITIZACIÓN PARA SEGURIDAD
+  // --------------------------------------
+  function sanitizeProjectId(id) {
+    // Solo permite letras, números y guiones (a-z, A-Z, 0-9, -)
+    // Esto previene inyección de código a través del parámetro URL
+    if (!id) return null;
+    return id.replace(/[^a-zA-Z0-9\-]/g, '');
+  }
+
+  function sanitizeText(text) {
+    // Escapa caracteres HTML para prevenir XSS
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function safeSetHTML(element, html) {
+    // Método seguro para establecer HTML
+    element.innerHTML = html;
+  }
+
+  // Obtener y sanitizar parámetro de URL
   const params = new URLSearchParams(window.location.search);
-  const id = params.get('proyecto');
-  const proyecto = PROYECTOS[id];
+  const rawId = params.get('proyecto');
+  const id = sanitizeProjectId(rawId);
+  const proyecto = id ? PROYECTOS[id] : null;
 
   // Si no existe el id, muestra un mensaje genérico
   if (!proyecto) {
@@ -468,21 +492,27 @@ const PROYECTOS = {
   document.getElementById('project-tag').textContent = proyecto.tag;
   document.getElementById('project-long-desc').textContent = proyecto.descLarga;
 
-  // Breadcrumb dinámico
-  document.getElementById('breadcrumb').innerHTML =
-    `<li><a href="../index.html">Inicio</a> /</li>
-     <li><a href="${proyecto.catalogo}">${proyecto.catalogoLabel}</a> /</li>
-     <li>${proyecto.titulo}</li>`;
+  // Breadcrumb dinámico (con sanitización)
+  const breadcrumbHTML = `
+    <li><a href="../index.html">Inicio</a> /</li>
+    <li><a href="${sanitizeText(proyecto.catalogo)}">${sanitizeText(proyecto.catalogoLabel)}</a> /</li>
+    <li>${sanitizeText(proyecto.titulo)}</li>
+  `;
+  document.getElementById('breadcrumb').innerHTML = breadcrumbHTML;
 
   // Enlace "volver al catálogo"
   document.getElementById('back-link').href = proyecto.catalogo;
   document.getElementById('back-link').textContent = `← Volver a ${proyecto.catalogoLabel}`;
 
-  // Ficha técnica
+  // Ficha técnica (con sanitización)
   const specsDL = document.getElementById('project-specs');
   Object.entries(proyecto.specs).forEach(([clave, valor]) => {
-    specsDL.insertAdjacentHTML('beforeend',
-      `<dt>${clave}</dt><dd>${valor}</dd>`);
+    const dt = document.createElement('dt');
+    const dd = document.createElement('dd');
+    dt.textContent = sanitizeText(clave);
+    dd.textContent = sanitizeText(valor);
+    specsDL.appendChild(dt);
+    specsDL.appendChild(dd);
   });
 
   // Imagen de portada (la primera de la galería)
@@ -490,15 +520,22 @@ const PROYECTOS = {
   cover.style.backgroundImage = `url('${proyecto.imagenes[0].url}')`;
   cover.setAttribute('aria-label', proyecto.imagenes[0].alt);
 
-  // Miniaturas de la galería
+  // Miniaturas de la galería (con sanitización de atributos)
   const thumbGrid = document.getElementById('thumb-grid');
   proyecto.imagenes.forEach((img, i) => {
     const btn = document.createElement('button');
     btn.className = 'thumb' + (i === 0 ? ' thumb--active' : '');
     btn.setAttribute('role', 'listitem');
-    btn.setAttribute('aria-label', 'Ver imagen: ' + img.alt);
+    btn.setAttribute('aria-label', 'Ver imagen: ' + sanitizeText(img.alt));
     btn.dataset.index = String(i);
-    btn.innerHTML = `<img src="${img.url.replace('w=1200', 'w=300')}" alt="${img.alt}" loading="lazy" />`;
+    
+    // Crear imagen de forma segura
+    const imgEl = document.createElement('img');
+    imgEl.src = img.url.replace('w=1200', 'w=300');
+    imgEl.alt = sanitizeText(img.alt);
+    imgEl.loading = 'lazy';
+    btn.appendChild(imgEl);
+    
     thumbGrid.appendChild(btn);
   });
 

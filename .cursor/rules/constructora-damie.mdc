@@ -39,6 +39,8 @@ No inventar rutas nuevas: respetar el árbol de carpetas existente y reutilizar 
 - HTML5 semántico: `<header>`, `<main>`, `<section>`, `<footer>`
 - Layout con CSS Grid y Flexbox nativo. Sin Bootstrap ni Tailwind
 - Comentarios explicativos en español en secciones importantes
+- Documenta por comentarios, tambien deja mini guias dentro de ciertas tareas, por ejemplo, el agregado de elementos tipo tarjeta para añadir productos en los diferentes catalogos
+
 
 ## Checklist antes de entregar
 - HTML sin atributos `style="..."` y sin `<script>...</script>` (solo `<script src="...">` externo).

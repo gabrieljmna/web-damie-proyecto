@@ -7,27 +7,32 @@
 
 :root {
 
-  /* --- Paleta de color principal (azules) --- */
-  --color-primary:        #1A3A5C;   /* Azul marino corporativo */
+  /* --- Paleta de color principal (azules mejorados para contraste) --- */
+  --color-primary:        #1E3A8A;   /* Azul marino más suave - mejor contraste con texto blanco */
   --color-primary-light:  #3B82F6;   /* Azul medio luminoso (hover, acentos) */
-  --color-primary-dark:   #0F2440;   /* Azul oscuro (sombras, énfasis) */
+  --color-primary-dark:   #1E40AF;   /* Azul oscuro para hover - más legible */
 
-  /* --- Neutros (escala completa para mejor control) --- */
+  /* --- Neutros (escala completa optimizada para legibilidad) --- */
   --color-white:          #FFFFFF;
-  --color-gray-50:        #F9FAFB;   /* Fondos muy claros */
-  --color-gray-100:       #F5F6F8;   /* Fondo de secciones alternas */
-  --color-gray-200:       #E8EAED;   /* Bordes suaves */
-  --color-gray-300:       #D1D5DB;   /* Bordes más visibles */
-  --color-gray-400:       #9CA3AF;   /* Texto secundario / placeholders */
-  --color-gray-500:       #6B7280;   /* Texto de apoyo */
-  --color-gray-600:       #4B5563;   /* Texto secundario */
-  --color-gray-700:       #374151;   /* Texto de cuerpo (actual) */
-  --color-gray-800:       #1F2937;   /* Texto de cuerpo mejorado (más contraste) */
-  --color-gray-900:       #111827;   /* Títulos y texto principal */
+  --color-gray-50:        #F8FAFC;   /* Fondos muy claros */
+  --color-gray-100:       #F1F5F9;   /* Fondo de secciones alternas */
+  --color-gray-200:       #E2E8F0;   /* Bordes suaves */
+  --color-gray-300:       #CBD5E1;   /* Bordes más visibles */
+  --color-gray-400:       #94A3B8;   /* Texto secundario / placeholders */
+  --color-gray-500:       #64748B;   /* Texto de apoyo */
+  --color-gray-600:       #475569;   /* Texto secundario */
+  --color-gray-700:       #334155;   /* Texto de cuerpo */
+  --color-gray-800:       #1E293B;   /* Texto de cuerpo mejorado (alto contraste) */
+  --color-gray-900:       #0F172A;   /* Títulos y texto principal */
 
-  /* --- Color de acento / llamada a la acción (azul brillante) --- */
-  --color-accent:         #2563EB;   /* Azul de acento para CTA */
-  --color-accent-dark:    #1D4ED8;   /* Hover del acento */
+  /* --- Color de acento / llamada a la acción (azul optimizado para legibilidad) --- */
+  --color-accent:         #1D4ED8;   /* Azul de acento más oscuro - mejor contraste con texto blanco */
+  --color-accent-light:   #3B82F6;   /* Azul más claro para estados hover */
+  --color-accent-dark:    #1E40AF;   /* Azul más oscuro para estados activos */
+
+  /* --- Colores de texto optimizados para contraste --- */
+  --color-text-on-primary: var(--color-white);  /* Texto sobre fondos primarios */
+  --color-text-on-accent:  var(--color-white);  /* Texto sobre fondos de acento */
 
   /* --- Semánticos (actualizados para mejor contraste) --- */
   --color-bg:             var(--color-white);
