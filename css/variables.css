@@ -12,21 +12,26 @@
   --color-primary-light:  #3B82F6;   /* Azul medio luminoso (hover, acentos) */
   --color-primary-dark:   #0F2440;   /* Azul oscuro (sombras, énfasis) */
 
-  /* --- Neutros --- */
+  /* --- Neutros (escala completa para mejor control) --- */
   --color-white:          #FFFFFF;
+  --color-gray-50:        #F9FAFB;   /* Fondos muy claros */
   --color-gray-100:       #F5F6F8;   /* Fondo de secciones alternas */
   --color-gray-200:       #E8EAED;   /* Bordes suaves */
+  --color-gray-300:       #D1D5DB;   /* Bordes más visibles */
   --color-gray-400:       #9CA3AF;   /* Texto secundario / placeholders */
-  --color-gray-700:       #374151;   /* Texto de cuerpo */
+  --color-gray-500:       #6B7280;   /* Texto de apoyo */
+  --color-gray-600:       #4B5563;   /* Texto secundario */
+  --color-gray-700:       #374151;   /* Texto de cuerpo (actual) */
+  --color-gray-800:       #1F2937;   /* Texto de cuerpo mejorado (más contraste) */
   --color-gray-900:       #111827;   /* Títulos y texto principal */
 
   /* --- Color de acento / llamada a la acción (azul brillante) --- */
   --color-accent:         #2563EB;   /* Azul de acento para CTA */
   --color-accent-dark:    #1D4ED8;   /* Hover del acento */
 
-  /* --- Semánticos --- */
+  /* --- Semánticos (actualizados para mejor contraste) --- */
   --color-bg:             var(--color-white);
-  --color-text:           var(--color-gray-700);
+  --color-text:           var(--color-gray-800); /* Mejor contraste: #1F2937 */
   --color-heading:        var(--color-gray-900);
   --color-border:         var(--color-gray-200);
   --color-surface:        var(--color-gray-100);
@@ -82,6 +87,13 @@
   --transition-fast:   150ms ease;
   --transition-base:   250ms ease;
   --transition-slow:   400ms ease;
+
+  /* --- Line-height (altura de línea para mejor legibilidad) --- */
+  --leading-none:   1;
+  --leading-tight:  1.25;
+  --leading-normal: 1.5;     /* Recomendado para texto de cuerpo */
+  --leading-relaxed: 1.75;   /* Para textos largos o párrafos */
+  --leading-loose:  2;
 
   /* --- Ancho máximo del contenedor --- */
   --container-max: 1200px;

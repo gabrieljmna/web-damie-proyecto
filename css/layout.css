@@ -70,6 +70,20 @@ a {
   user-select: none;
 }
 
+.logo__image {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+}
+
+.logo:hover .logo__image {
+  transform: scale(1.05);
+}
+
+/* Mantener compatibilidad con .logo__icon por si acaso */
 .logo__icon {
   width: 40px;
   height: 40px;
@@ -79,7 +93,7 @@ a {
   background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
   color: var(--color-white);
   box-shadow: var(--shadow-sm);
-  font-size: 16px;
+  font-size: var(--text-base); /* 16px - Estandarizado con variables */
 }
 
 .logo__text {

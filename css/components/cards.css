@@ -25,8 +25,18 @@
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-primary-light);
+}
+
+/* Transición más suave para elementos internos en hover */
+.card:hover .card__title {
+  color: var(--color-primary);
+}
+
+.card:hover .card__thumb img {
+  transform: scale(1.05);
 }
 
 /* =============================================
@@ -68,7 +78,7 @@
   place-items: center;
   background: rgba(37, 99, 168, 0.08);
   color: var(--color-primary-dark);
-  font-size: 22px;
+  font-size: var(--text-xl); /* 20px - Estandarizado con variables */
   margin-bottom: var(--space-4);
   margin-left: auto;
   margin-right: auto;
